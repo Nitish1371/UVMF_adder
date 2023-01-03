@@ -1,0 +1,35 @@
+uvmf:
+  environments:
+    "add":
+      agents:
+        - name: "add_input"
+          type: "add_in"
+          initiator_responder: "INITIATOR"
+
+        - name: "add_output"
+          type: "add_out"
+          initiator_responder: "RESPONDER"
+           
+      analysis_components:
+        - name: "add_p" 
+          type: "add_pre"
+        - name: "add_s"
+          type: "add_sb"
+
+      analysis_ports:
+        - name: "add_input_ap"
+          trans_type: "add_in_transaction"
+          connected_to: "add_input.monitored_ap"
+        - name: "add_output_ap"
+          trans_type: "add_out_transaction" 
+          connected_to: "add_output.monitored_ap"
+          
+      tlm_connections:
+        - driver: "add_input.monitored_ap"
+          receiver: "add_p.add_in_ae"
+        - driver: "add_p.add_sb_ap"
+          receiver: "add_s.sb_from_pre_ae"
+        - driver: "add_output.monitored_ap"
+          receiver: "add_s.add_out_ae"
+
+         
