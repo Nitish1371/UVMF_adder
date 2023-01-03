@@ -1,0 +1,10 @@
+uvmf:
+  util_components:
+    add_sb:
+      analysis_exports:
+      - name: add_out_ae
+        type: add_out_transaction
+      - name: sb_from_pre_ae
+        type: add_in_transaction
+      existing_library_component: 'True'
+      type: scoreboard

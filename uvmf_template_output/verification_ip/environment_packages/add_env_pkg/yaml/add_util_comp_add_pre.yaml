@@ -1,0 +1,11 @@
+uvmf:
+  util_components:
+    add_pre:
+      analysis_exports:
+      - name: add_in_ae
+        type: add_in_transaction
+      analysis_ports:
+      - name: add_sb_ap
+        type: add_in_transaction
+      existing_library_component: 'True'
+      type: predictor
